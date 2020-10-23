@@ -14,6 +14,8 @@
 		8467F4F0254082EA00DFF666 /* WeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8467F4EE254082EA00DFF666 /* WeatherApp.xcdatamodeld */; };
 		8467F4F2254082FD00DFF666 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8467F4F1254082FD00DFF666 /* Assets.xcassets */; };
 		8467F4F5254082FD00DFF666 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8467F4F3254082FD00DFF666 /* LaunchScreen.storyboard */; };
+		F51FA2A42542E6F800C3B73C /* SecondSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51FA2A32542E6F800C3B73C /* SecondSplitViewController.swift */; };
+		F51FA2A82542E80D00C3B73C /* MasterSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51FA2A72542E80D00C3B73C /* MasterSplitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		8467F4F1254082FD00DFF666 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8467F4F4254082FD00DFF666 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8467F4F6254082FD00DFF666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F51FA2A32542E6F800C3B73C /* SecondSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSplitViewController.swift; sourceTree = "<group>"; };
+		F51FA2A72542E80D00C3B73C /* MasterSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterSplitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				8467F4F3254082FD00DFF666 /* LaunchScreen.storyboard */,
 				8467F4F6254082FD00DFF666 /* Info.plist */,
 				8467F4EE254082EA00DFF666 /* WeatherApp.xcdatamodeld */,
+				F51FA2A32542E6F800C3B73C /* SecondSplitViewController.swift */,
+				F51FA2A72542E80D00C3B73C /* MasterSplitViewController.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -141,10 +147,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F51FA2A42542E6F800C3B73C /* SecondSplitViewController.swift in Sources */,
 				8467F4F0254082EA00DFF666 /* WeatherApp.xcdatamodeld in Sources */,
 				8467F4EA254082E900DFF666 /* ViewController.swift in Sources */,
 				8467F4E6254082E900DFF666 /* AppDelegate.swift in Sources */,
 				8467F4E8254082E900DFF666 /* SceneDelegate.swift in Sources */,
+				F51FA2A82542E80D00C3B73C /* MasterSplitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
