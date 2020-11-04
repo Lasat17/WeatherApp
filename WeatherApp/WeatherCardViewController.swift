@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MasterSplitViewController: UITableViewController {
+class WeatherCardViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

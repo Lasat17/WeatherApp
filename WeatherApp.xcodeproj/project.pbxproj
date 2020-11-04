@@ -16,8 +16,8 @@
 		8467F4F5254082FD00DFF666 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8467F4F3254082FD00DFF666 /* LaunchScreen.storyboard */; };
 		84CB4D692546DED600F4DC5B /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB4D682546DED600F4DC5B /* WeatherTableViewCell.swift */; };
 		84CB4D6B2546EA8800F4DC5B /* AddCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB4D6A2546EA8800F4DC5B /* AddCityTableViewCell.swift */; };
-		F51FA2A42542E6F800C3B73C /* SecondSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51FA2A32542E6F800C3B73C /* SecondSplitViewController.swift */; };
-		F51FA2A82542E80D00C3B73C /* MasterSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51FA2A72542E80D00C3B73C /* MasterSplitViewController.swift */; };
+		F51FA2A42542E6F800C3B73C /* forcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51FA2A32542E6F800C3B73C /* forcastViewController.swift */; };
+		F51FA2A82542E80D00C3B73C /* WeatherCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51FA2A72542E80D00C3B73C /* WeatherCardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +32,8 @@
 		8467F4F6254082FD00DFF666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84CB4D682546DED600F4DC5B /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		84CB4D6A2546EA8800F4DC5B /* AddCityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityTableViewCell.swift; sourceTree = "<group>"; };
-		F51FA2A32542E6F800C3B73C /* SecondSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSplitViewController.swift; sourceTree = "<group>"; };
-		F51FA2A72542E80D00C3B73C /* MasterSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterSplitViewController.swift; sourceTree = "<group>"; };
+		F51FA2A32542E6F800C3B73C /* forcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forcastViewController.swift; sourceTree = "<group>"; };
+		F51FA2A72542E80D00C3B73C /* WeatherCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,8 +74,8 @@
 				8467F4F3254082FD00DFF666 /* LaunchScreen.storyboard */,
 				8467F4F6254082FD00DFF666 /* Info.plist */,
 				8467F4EE254082EA00DFF666 /* WeatherApp.xcdatamodeld */,
-				F51FA2A32542E6F800C3B73C /* SecondSplitViewController.swift */,
-				F51FA2A72542E80D00C3B73C /* MasterSplitViewController.swift */,
+				F51FA2A32542E6F800C3B73C /* forcastViewController.swift */,
+				F51FA2A72542E80D00C3B73C /* WeatherCardViewController.swift */,
 				84CB4D682546DED600F4DC5B /* WeatherTableViewCell.swift */,
 				84CB4D6A2546EA8800F4DC5B /* AddCityTableViewCell.swift */,
 			);
@@ -153,14 +153,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F51FA2A42542E6F800C3B73C /* SecondSplitViewController.swift in Sources */,
+				F51FA2A42542E6F800C3B73C /* forcastViewController.swift in Sources */,
 				8467F4F0254082EA00DFF666 /* WeatherApp.xcdatamodeld in Sources */,
 				84CB4D6B2546EA8800F4DC5B /* AddCityTableViewCell.swift in Sources */,
 				84CB4D692546DED600F4DC5B /* WeatherTableViewCell.swift in Sources */,
 				8467F4EA254082E900DFF666 /* ViewController.swift in Sources */,
 				8467F4E6254082E900DFF666 /* AppDelegate.swift in Sources */,
 				8467F4E8254082E900DFF666 /* SceneDelegate.swift in Sources */,
-				F51FA2A82542E80D00C3B73C /* MasterSplitViewController.swift in Sources */,
+				F51FA2A82542E80D00C3B73C /* WeatherCardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

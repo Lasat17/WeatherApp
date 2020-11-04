@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondSplitViewController: UIViewController {
+class ForcastViewController: UIViewController {
 
     @IBOutlet weak var CityLabel: UILabel!
     @IBOutlet weak var WeatherDescriptionLabel: UILabel!
