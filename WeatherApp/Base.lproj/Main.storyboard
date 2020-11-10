@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FEN-Ro-bBO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FEN-Ro-bBO">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -51,16 +53,16 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Uar-zC-VOE">
-                                                        <rect key="frame" x="331.5" y="0.0" width="34.5" height="72"/>
+                                                        <rect key="frame" x="332.5" y="0.0" width="33.5" height="72"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T82-BJ-kgv">
-                                                                <rect key="frame" x="0.0" y="0.0" width="34.5" height="36"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="33.5" height="36"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                                 <color key="textColor" name="TextColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8I5-A5-6C9">
-                                                                <rect key="frame" x="0.0" y="36" width="34.5" height="36"/>
+                                                                <rect key="frame" x="0.0" y="36" width="33.5" height="36"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <color key="textColor" name="TextColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -307,7 +309,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flame" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wQP-Dg-E58">
-                                                                <rect key="frame" x="0.0" y="21.5" width="68.5" height="30.5"/>
+                                                                <rect key="frame" x="0.0" y="22" width="68.5" height="30"/>
                                                                 <color key="tintColor" name="TextColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="VVv-G0-Ybe"/>
@@ -326,23 +328,23 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="fgX-pq-URA">
-                                                        <rect key="frame" x="109" y="0.0" width="43.5" height="75"/>
+                                                        <rect key="frame" x="109.5" y="0.0" width="42.5" height="75"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wind" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoa-fA-RcH">
-                                                                <rect key="frame" x="0.0" y="0.0" width="43.5" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="42.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="TextColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wind" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aSl-dj-RQs">
-                                                                <rect key="frame" x="0.0" y="24.5" width="43.5" height="27"/>
+                                                                <rect key="frame" x="0.0" y="24.5" width="42.5" height="27"/>
                                                                 <color key="tintColor" name="TextColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="yy4-TH-uRO"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 m/s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJO-3A-wk8">
-                                                                <rect key="frame" x="0.0" y="54.5" width="43.5" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="54.5" width="42.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="TextColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -382,23 +384,23 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="KfT-cL-raZ">
-                                                        <rect key="frame" x="318" y="0.0" width="72" height="75"/>
+                                                        <rect key="frame" x="318.5" y="0.0" width="71.5" height="75"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pressure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1AZ-Av-WJy">
-                                                                <rect key="frame" x="0.0" y="0.0" width="72" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="TextColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle.compress.vertical" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aFV-Uc-mkN">
-                                                                <rect key="frame" x="0.0" y="20.5" width="72" height="33"/>
+                                                                <rect key="frame" x="0.0" y="20.5" width="71.5" height="33"/>
                                                                 <color key="tintColor" name="TextColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="bz1-DI-biS"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1008 hPa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVL-C8-jxm">
-                                                                <rect key="frame" x="0.0" y="54.5" width="72" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="54.5" width="71.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="TextColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -458,6 +460,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="dM6-Fe-gF6"/>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="mOz-wO-Cuq"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <color key="tintColor" name="CardColor"/>
                         <constraints>
@@ -465,7 +468,6 @@
                             <constraint firstItem="Ka4-F6-nL0" firstAttribute="centerY" secondItem="zYc-LS-j20" secondAttribute="centerY" id="f3W-LC-sP4"/>
                             <constraint firstItem="Ka4-F6-nL0" firstAttribute="leading" secondItem="zYc-LS-j20" secondAttribute="leading" id="vtS-3A-gw5"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="mOz-wO-Cuq"/>
                     </view>
                     <navigationItem key="navigationItem" id="yiZ-jU-mxR"/>
                     <connections>
@@ -512,7 +514,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5cU-Os-1bE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="sectionIndexBackgroundColor" name="BackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="188" id="s1B-OW-i8W" customClass="WeatherTableViewCell" customModule="WeatherApp" customModuleProvider="target">
@@ -554,16 +556,16 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="zDO-fS-05P">
-                                                            <rect key="frame" x="331.5" y="0.0" width="34.5" height="72"/>
+                                                            <rect key="frame" x="332.5" y="0.0" width="33.5" height="72"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szC-Pn-7zG">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="34.5" height="36"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="33.5" height="36"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                                     <color key="textColor" name="TextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w79-LQ-8yx">
-                                                                    <rect key="frame" x="0.0" y="36" width="34.5" height="36"/>
+                                                                    <rect key="frame" x="0.0" y="36" width="33.5" height="36"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                     <color key="textColor" name="TextColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -638,26 +640,22 @@
         <!--Add City-->
         <scene sceneID="mSZ-lg-a1c">
             <objects>
-                <viewController id="VTk-eZ-Y7l" sceneMemberID="viewController">
+                <viewController id="VTk-eZ-Y7l" customClass="AddCityViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gVT-n0-1Rq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CQ9-c9-Eez">
-                                <rect key="frame" x="16" y="104" width="382" height="25.5"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CQ9-c9-Eez">
+                                <rect key="frame" x="16" y="104" width="346" height="26"/>
                                 <color key="backgroundColor" name="CardColor"/>
                                 <color key="tintColor" name="TextColor"/>
                                 <color key="textColor" name="TextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="SeachCity:" destination="paF-V2-IWt" eventType="editingDidEnd" id="Dy6-rD-ujU"/>
-                                    <action selector="SeachCityTextEdit:" destination="paF-V2-IWt" eventType="editingDidEnd" id="VdK-Gb-vC4"/>
-                                </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L2u-Jr-Vbm">
-                                <rect key="frame" x="16" y="145.5" width="382" height="700.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="16" y="146" width="382" height="700"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" id="Cfo-fC-VP2" customClass="AddCityTableViewCell" customModule="WeatherApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="382" height="90.5"/>
@@ -689,23 +687,50 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" id="Jm6-We-Abe">
+                                <rect key="frame" x="16" y="426" width="382" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" name="TextColor"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWF-MZ-2lN">
+                                <rect key="frame" x="378" y="104" width="20" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="3TT-6d-xHb"/>
+                                    <constraint firstAttribute="width" constant="20" id="ibi-gk-hzV"/>
+                                </constraints>
+                                <color key="tintColor" name="CardColor"/>
+                                <state key="normal" image="magnifyingglass" catalog="system">
+                                    <color key="titleColor" name="CardColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchCity:" destination="VTk-eZ-Y7l" eventType="touchUpInside" id="pVZ-fd-2Ck"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="muU-CL-2ae"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="L2u-Jr-Vbm" firstAttribute="top" secondItem="PWF-MZ-2lN" secondAttribute="bottom" constant="16" id="49P-nH-bta"/>
+                            <constraint firstItem="muU-CL-2ae" firstAttribute="trailing" secondItem="PWF-MZ-2lN" secondAttribute="trailing" constant="16" id="Hup-2N-EZC"/>
                             <constraint firstItem="L2u-Jr-Vbm" firstAttribute="leading" secondItem="muU-CL-2ae" secondAttribute="leading" constant="16" id="ZNy-Td-EIP"/>
+                            <constraint firstItem="PWF-MZ-2lN" firstAttribute="top" secondItem="muU-CL-2ae" secondAttribute="top" constant="16" id="bPq-fB-b20"/>
                             <constraint firstItem="L2u-Jr-Vbm" firstAttribute="top" secondItem="CQ9-c9-Eez" secondAttribute="bottom" constant="16" id="ckg-Dd-vEb"/>
+                            <constraint firstItem="PWF-MZ-2lN" firstAttribute="trailing" secondItem="L2u-Jr-Vbm" secondAttribute="trailing" id="f1h-xy-Wpo"/>
                             <constraint firstItem="muU-CL-2ae" firstAttribute="trailing" secondItem="L2u-Jr-Vbm" secondAttribute="trailing" constant="16" id="f1y-dG-WxM"/>
+                            <constraint firstItem="PWF-MZ-2lN" firstAttribute="leading" secondItem="CQ9-c9-Eez" secondAttribute="trailing" constant="16" id="i8Z-Dv-PeJ"/>
                             <constraint firstItem="muU-CL-2ae" firstAttribute="bottom" secondItem="L2u-Jr-Vbm" secondAttribute="bottom" constant="16" id="jLW-bX-Q7Z"/>
-                            <constraint firstItem="muU-CL-2ae" firstAttribute="trailing" secondItem="CQ9-c9-Eez" secondAttribute="trailing" constant="16" id="mDn-Zp-n91"/>
                             <constraint firstItem="CQ9-c9-Eez" firstAttribute="leading" secondItem="muU-CL-2ae" secondAttribute="leading" constant="16" id="n64-Aw-tJd"/>
                             <constraint firstItem="CQ9-c9-Eez" firstAttribute="top" secondItem="muU-CL-2ae" secondAttribute="top" constant="16" id="pYT-wM-dOI"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="muU-CL-2ae"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add City" id="UHU-k8-KoA"/>
+                    <connections>
+                        <outlet property="ActivityIndicator" destination="Jm6-We-Abe" id="bbh-3d-zFK"/>
+                        <outlet property="SearchCityText" destination="CQ9-c9-Eez" id="Zg3-cu-wWV"/>
+                        <outlet property="TableView" destination="L2u-Jr-Vbm" id="HeV-Gt-jdf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kkn-Id-ZZu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="paF-V2-IWt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5384.057971014493" y="-323.4375"/>
         </scene>
@@ -730,12 +755,13 @@
     </scenes>
     <resources>
         <image name="cloud.fill" catalog="system" width="128" height="84"/>
-        <image name="flame" catalog="system" width="109" height="128"/>
+        <image name="flame" catalog="system" width="108" height="128"/>
         <image name="ic_launcher" width="72" height="72"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="rectangle.compress.vertical" catalog="system" width="128" height="128"/>
+        <image name="rectangle.compress.vertical" catalog="system" width="122" height="128"/>
         <image name="trash.fill" catalog="system" width="121" height="128"/>
-        <image name="wind" catalog="system" width="128" height="103"/>
+        <image name="wind" catalog="system" width="128" height="101"/>
         <namedColor name="BackgroundColor">
             <color red="0.14901960784313725" green="0.15686274509803921" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -745,5 +771,8 @@
         <namedColor name="TextColor">
             <color red="0.99607843137254903" green="1" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
