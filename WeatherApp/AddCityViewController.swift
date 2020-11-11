@@ -87,7 +87,7 @@ class AddCityViewController : UIViewController{
     
     
     func showError(description: String){
-        //self.ActivityIndicator.isHidden = true
+        self.ActivityIndicator.isHidden = true
         let alert = UIAlertController(title: "Error", message: description, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title:"Ok", style: UIAlertAction.Style.default, handler: {_ in self.navigationController?.popViewController(animated: true)}))
         

@@ -123,7 +123,6 @@
 		F5CD16902559CB69009E9775 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				F5D1E975255AD5BC00C3FCE4 /* WeatherList */,
 				F5D1E979255AD61B00C3FCE4 /* FindCity */,
 				F55511142559FDB200C4CF97 /* URLBase.swift */,
 				F5551118255A067700C4CF97 /* JSONNull.swift */,
@@ -137,13 +136,6 @@
 				F5D1E96C255AC46E00C3FCE4 /* NetworkExtension.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F5D1E975255AD5BC00C3FCE4 /* WeatherList */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = WeatherList;
 			sourceTree = "<group>";
 		};
 		F5D1E979255AD61B00C3FCE4 /* FindCity */ = {

@@ -8,34 +8,40 @@
 
 import Foundation
 
+// MARK: - FindCity
 struct FindCity: Codable {
-    public let message, cod: String
-    public let count: Int
-    public let list: [List]
+    let message, cod: String
+    let count: Int
+    let list: [ListFindCity]
 }
 
-struct List: Codable {
+// MARK: - List
+struct ListFindCity: Codable {
     let id: Int
     let name: String
-    let coord: Coord
-    let main: Main
+    let coord: CoordFindCity
+    let main: MainFindCity
     let dt: Int
-    let wind: Wind
-    let sys: Sys
-    let rain, snow: JSONNull?
-    let clouds: Clouds
-    let weather: [Weather]
+    let wind: WindFindCity
+    let sys: SysFindCity
+    let rain: RainFindCity?
+    let snow: JSONNull?
+    let clouds: CloudsFindCity
+    let weather: [WeatherFindCity]
 }
 
-struct Clouds: Codable {
-    public let all: Int
+// MARK: - Clouds
+struct CloudsFindCity: Codable {
+    let all: Int
 }
 
-struct Coord: Codable {
-    public let lat, lon: Double
+// MARK: - Coord
+struct CoordFindCity: Codable {
+    let lat, lon: Double
 }
 
-struct Main: Codable {
+// MARK: - Main
+struct MainFindCity: Codable {
     let temp, feelsLike, tempMin, tempMax: Double
     let pressure, humidity: Int
 
@@ -48,11 +54,22 @@ struct Main: Codable {
     }
 }
 
-struct Sys: Codable {
+// MARK: - Rain
+struct RainFindCity: Codable {
+    let the1H: Double
+
+    enum CodingKeys: String, CodingKey {
+        case the1H = "1h"
+    }
+}
+
+// MARK: - Sys
+struct SysFindCity: Codable {
     let country: String
 }
 
-struct Weather: Codable {
+// MARK: - Weather
+struct WeatherFindCity: Codable {
     let id: Int
     let main, weatherDescription, icon: String
 
@@ -63,7 +80,8 @@ struct Weather: Codable {
     }
 }
 
-struct Wind: Codable {
+// MARK: - Wind
+struct WindFindCity: Codable {
     let speed: Double
     let deg: Int
 }
