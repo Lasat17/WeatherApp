@@ -28,8 +28,13 @@ struct URLBase {
     
     func weatherListUrl(id cities: [String]) -> String{
         var idlist = ""
-        for cityId in cities{
-            idlist += "\(cityId),"
+        for (index, cityId) in cities.enumerated() {
+            if index < cities.count-1 {
+                idlist += "\(cityId),"
+            } else {
+                idlist += "\(cityId)"
+            }
+            
         }
         return "\(base_url)\(url_weatherList)\(units_url)&id=\(idlist)\(url_Key)"
     }
