@@ -14,7 +14,7 @@ class WeatherCardViewController: UITableViewController {
     let jsonDecoder = JSONDecoder()
     let api = URLBase()
     var weatherList : WeatherList? = nil
-    let mock = ["2615876","2616015"]
+    let mock = ["2615876","2616015","524901"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,9 @@ class WeatherCardViewController: UITableViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func reloadData(_ sender: Any) {
+        getWeatherData()
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -41,9 +44,9 @@ class WeatherCardViewController: UITableViewController {
             cell.CityUILabel.text = "\(cityName), \(cityCountry)"
             cell.WeatherDescriptionUILabel.text = result.list[indexPath.item].weather[0].weatherDescription
             //cell.WeatherDescriptionImageView =
-            cell.CurrentTempUILabel.text = "\(result.list[indexPath.item].main.temp)°"
-            cell.MaxTempUILabel.text = "\(result.list[indexPath.item].main.tempMax)°"
-            cell.MinTempUILabel.text = "\(result.list[indexPath.item].main.tempMin)°"
+            cell.CurrentTempUILabel.text = "\(Int(result.list[indexPath.item].main.temp))°"
+            cell.MaxTempUILabel.text = "\(Int(result.list[indexPath.item].main.tempMax))°"
+            cell.MinTempUILabel.text = "\(Int(result.list[indexPath.item].main.tempMin))°"
         }
         return cell
     }
@@ -100,19 +103,26 @@ class WeatherCardViewController: UITableViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
-
     
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
     
-    
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        if (segue.identifier == "weatherSeg"){
+            if let destination = segue.destination as? ForecastViewController {
+                if (weatherList != nil){
+                    destination.currentWeather = (weatherList?.list[(self.tableView.indexPathForSelectedRow?.item)!])!
+                }
+                
+            }
+        }
     }
-    */
-
 }

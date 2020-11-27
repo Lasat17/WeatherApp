@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FEN-Ro-bBO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FEN-Ro-bBO">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Forcast View Controller-->
+        <!--Forecast View Controller-->
         <scene sceneID="C38-pX-ptd">
             <objects>
-                <viewController id="RDk-Hi-z4d" customClass="ForcastViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RDk-Hi-z4d" customClass="ForecastViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zYc-LS-j20">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -471,36 +471,36 @@
                     </view>
                     <navigationItem key="navigationItem" id="yiZ-jU-mxR"/>
                     <connections>
-                        <outlet property="CityLabel" destination="Jtk-iW-hHK" id="bZy-tF-TP1"/>
-                        <outlet property="CloudinessLevelLabel" destination="1b8-zS-toy" id="pGJ-bU-Reb"/>
-                        <outlet property="CurrentTempLabel" destination="8yj-Ee-OeR" id="5Os-k9-Zg1"/>
-                        <outlet property="Day1ImageView" destination="Zx7-Si-wLG" id="zDk-Ls-KCe"/>
-                        <outlet property="Day1Label" destination="dWa-dg-w5x" id="QMA-Lh-TbL"/>
-                        <outlet property="Day1MaxTempLabel" destination="g1u-pF-KwG" id="K6S-vn-PDx"/>
-                        <outlet property="Day1MinTempLabel" destination="ug2-PL-MYQ" id="yXG-0X-aRy"/>
-                        <outlet property="Day2ImageView" destination="0ZQ-r7-GjU" id="uxN-DV-711"/>
-                        <outlet property="Day2Label" destination="0ZQ-r7-GjU" id="lRd-Wr-H2u"/>
-                        <outlet property="Day2MaxTempLabel" destination="eHG-rE-KCL" id="aWt-Pl-gqc"/>
-                        <outlet property="Day2MinTempLabel" destination="lV9-uC-VNu" id="cdt-Sh-LfK"/>
-                        <outlet property="Day3ImageView" destination="9P5-kg-MG1" id="tcF-d0-6KA"/>
-                        <outlet property="Day3Label" destination="wlw-zv-nbF" id="kZh-tN-vqS"/>
-                        <outlet property="Day3MaxTempLabel" destination="RN9-MQ-7Fg" id="i6m-VY-kub"/>
-                        <outlet property="Day3MinTempLabel" destination="5ay-V5-1Cb" id="ura-bc-E01"/>
-                        <outlet property="Day4ImageView" destination="RfI-sg-Zhi" id="bdI-GA-ApR"/>
-                        <outlet property="Day4Label" destination="aXL-c7-U8p" id="Ez0-Ra-vRr"/>
-                        <outlet property="Day4MaxTempLabel" destination="ojd-Zl-axM" id="xi1-Tc-4OB"/>
-                        <outlet property="Day4MinTempLabel" destination="q4L-Lt-gTY" id="x02-3s-jU2"/>
-                        <outlet property="Day5ImageView" destination="S8B-BV-DK3" id="Rnq-fk-hZp"/>
-                        <outlet property="Day5Label" destination="tbO-sI-CD6" id="dOP-Jb-LJT"/>
-                        <outlet property="Day5MaxTempLabel" destination="8YB-ep-G6C" id="5fa-Lr-ahE"/>
-                        <outlet property="Day5MinTempLabel" destination="ABn-G3-xOx" id="uKq-1y-giz"/>
-                        <outlet property="HumidityLevelLabel" destination="Kxt-OB-2zc" id="wqu-Fe-yiO"/>
-                        <outlet property="MaxTempLabel" destination="T82-BJ-kgv" id="qAB-2O-chE"/>
-                        <outlet property="MinTempLabel" destination="8I5-A5-6C9" id="Kps-0D-3UZ"/>
-                        <outlet property="PressureLevelLabel" destination="LVL-C8-jxm" id="CTY-Xc-2uh"/>
-                        <outlet property="WeatherDescriptionImageView" destination="eqI-NO-Lq5" id="J9i-dA-cIH"/>
-                        <outlet property="WeatherDescriptionLabel" destination="Lqg-XY-PoK" id="1ER-L2-Hrp"/>
-                        <outlet property="WindLevelLabel" destination="tJO-3A-wk8" id="Vhi-Ev-BzY"/>
+                        <outlet property="DayLabel1" destination="dWa-dg-w5x" id="hfH-ZN-XMQ"/>
+                        <outlet property="DayLabel2" destination="FAN-kJ-Evi" id="Edt-Go-38v"/>
+                        <outlet property="DayLabel3" destination="wlw-zv-nbF" id="Ltk-6l-UTk"/>
+                        <outlet property="DayLabel4" destination="aXL-c7-U8p" id="m1f-7f-0dd"/>
+                        <outlet property="DayLabel5" destination="tbO-sI-CD6" id="lRr-aq-Lgp"/>
+                        <outlet property="HumidityLvlLabel" destination="Kxt-OB-2zc" id="Nhf-fq-3D0"/>
+                        <outlet property="cityLabel" destination="Jtk-iW-hHK" id="l5r-Jp-SBV"/>
+                        <outlet property="cloudinessLvlLabel" destination="1b8-zS-toy" id="Qy9-74-MJR"/>
+                        <outlet property="currentTemp" destination="8yj-Ee-OeR" id="Aev-HI-WgY"/>
+                        <outlet property="maxTemp" destination="T82-BJ-kgv" id="aGR-DE-vJl"/>
+                        <outlet property="maxTempLabel1" destination="g1u-pF-KwG" id="qUS-Hg-BWW"/>
+                        <outlet property="maxTempLabel2" destination="eHG-rE-KCL" id="Kmy-WH-jCM"/>
+                        <outlet property="maxTempLabel3" destination="RN9-MQ-7Fg" id="hw5-87-Yx2"/>
+                        <outlet property="maxTempLabel4" destination="ojd-Zl-axM" id="KNl-3H-sDc"/>
+                        <outlet property="maxTempLabel5" destination="8YB-ep-G6C" id="wl1-b9-QxL"/>
+                        <outlet property="minTemp" destination="8I5-A5-6C9" id="Vry-gO-sAH"/>
+                        <outlet property="minTempLabel1" destination="ug2-PL-MYQ" id="nCg-Px-b1r"/>
+                        <outlet property="minTempLabel2" destination="lV9-uC-VNu" id="ofQ-HR-ViP"/>
+                        <outlet property="minTempLabel3" destination="5ay-V5-1Cb" id="K8h-jL-ZwU"/>
+                        <outlet property="minTempLabel4" destination="q4L-Lt-gTY" id="68f-BP-LAV"/>
+                        <outlet property="minTempLabel5" destination="ABn-G3-xOx" id="cyN-cS-CoL"/>
+                        <outlet property="pressureLvlLabel" destination="LVL-C8-jxm" id="Go4-Xs-Jv1"/>
+                        <outlet property="weatherDecriptionImageView" destination="eqI-NO-Lq5" id="ady-5S-u1n"/>
+                        <outlet property="weatherDescriptionImageView1" destination="Zx7-Si-wLG" id="tU0-Sc-g9Q"/>
+                        <outlet property="weatherDescriptionImageView2" destination="0ZQ-r7-GjU" id="Vcn-3R-xtQ"/>
+                        <outlet property="weatherDescriptionImageView3" destination="9P5-kg-MG1" id="pEa-Pl-xvq"/>
+                        <outlet property="weatherDescriptionImageView4" destination="RfI-sg-Zhi" id="LLL-lq-ugb"/>
+                        <outlet property="weatherDescriptionImageView5" destination="S8B-BV-DK3" id="HrP-Ua-55l"/>
+                        <outlet property="weatherDescriptionLabel" destination="Lqg-XY-PoK" id="mn8-kn-MzH"/>
+                        <outlet property="windLvlLabel" destination="tJO-3A-wk8" id="Rlb-0M-bSD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTR-cs-V3q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -527,13 +527,13 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1GP-6K-dN6">
                                             <rect key="frame" x="8" y="4" width="398" height="180"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Odense, DK" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wW-SW-nUH">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wW-SW-nUH">
                                                     <rect key="frame" x="16" y="16" width="366" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                     <color key="textColor" name="TextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rain" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xae-wS-Tiz">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xae-wS-Tiz">
                                                     <rect key="frame" x="16" y="56" width="366" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" name="TextColor"/>
@@ -549,23 +549,23 @@
                                                                 <constraint firstAttribute="width" constant="72" id="TZn-dJ-GpU"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Y0-9w-Ei6">
-                                                            <rect key="frame" x="142" y="0.0" width="101" height="72"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Y0-9w-Ei6">
+                                                            <rect key="frame" x="124.5" y="0.0" width="131.5" height="72"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                             <color key="textColor" name="TextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="zDO-fS-05P">
-                                                            <rect key="frame" x="332.5" y="0.0" width="33.5" height="72"/>
+                                                            <rect key="frame" x="322" y="0.0" width="44" height="72"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szC-Pn-7zG">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="33.5" height="36"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szC-Pn-7zG">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="36"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                                     <color key="textColor" name="TextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w79-LQ-8yx">
-                                                                    <rect key="frame" x="0.0" y="36" width="33.5" height="36"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w79-LQ-8yx">
+                                                                    <rect key="frame" x="0.0" y="36" width="44" height="36"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                     <color key="textColor" name="TextColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -625,6 +625,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Weather" id="qFW-cf-T2e">
+                        <barButtonItem key="leftBarButtonItem" image="arrow.clockwise" catalog="system" id="Df2-5A-PRh">
+                            <connections>
+                                <action selector="reloadData:" destination="6g3-4F-zNr" id="uY1-gf-cFf"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="nwC-2i-dRc">
                             <connections>
                                 <action selector="AddCity:" destination="6g3-4F-zNr" id="ILT-Zd-us4"/>
@@ -754,6 +759,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="cloud.fill" catalog="system" width="128" height="84"/>
         <image name="flame" catalog="system" width="108" height="128"/>
         <image name="ic_launcher" width="72" height="72"/>
