@@ -7,7 +7,7 @@
 //
 
 import Foundation
-/*
+
 // MARK: - Forecast
 struct CityForecast: Codable {
     let cod: String
@@ -121,4 +121,4 @@ enum Description: String, Codable {
 struct Wind: Codable {
     let speed: Double
     let deg: Int
-} */
+} 

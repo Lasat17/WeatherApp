@@ -26,6 +26,7 @@
 		F59FCFC7255BE47A000AFFA8 /* WeatherList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59FCFC6255BE47A000AFFA8 /* WeatherList.swift */; };
 		F59FCFCB255BE4F6000AFFA8 /* CityForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59FCFCA255BE4F6000AFFA8 /* CityForecast.swift */; };
 		F5B12AA22559BECC0093E004 /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B12AA12559BECC0093E004 /* AddCityViewController.swift */; };
+		F5C5ABF325755B4400063CF0 /* IconHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C5ABF225755B4400063CF0 /* IconHelper.swift */; };
 		F5D1E96D255AC46E00C3FCE4 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D1E96C255AC46E00C3FCE4 /* NetworkExtension.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		F59FCFC6255BE47A000AFFA8 /* WeatherList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherList.swift; sourceTree = "<group>"; };
 		F59FCFCA255BE4F6000AFFA8 /* CityForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityForecast.swift; sourceTree = "<group>"; };
 		F5B12AA12559BECC0093E004 /* AddCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
+		F5C5ABF225755B4400063CF0 /* IconHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconHelper.swift; sourceTree = "<group>"; };
 		F5D1E96A255AC46D00C3FCE4 /* WeatherApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeatherApp.entitlements; sourceTree = "<group>"; };
 		F5D1E96C255AC46E00C3FCE4 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -152,6 +154,7 @@
 			children = (
 				847197FE255B2C68002098E3 /* Database */,
 				F5CD16902559CB69009E9775 /* API */,
+				F5C5ABF225755B4400063CF0 /* IconHelper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5C5ABF325755B4400063CF0 /* IconHelper.swift in Sources */,
 				F59FCFCB255BE4F6000AFFA8 /* CityForecast.swift in Sources */,
 				F51FA2A42542E6F800C3B73C /* forecastViewController.swift in Sources */,
 				F5551119255A067700C4CF97 /* JSONNull.swift in Sources */,

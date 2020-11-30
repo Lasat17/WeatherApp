@@ -10,6 +10,7 @@ import UIKit
 
 class ForecastViewController: UIViewController {
     var currentWeather : ListWeatherList?
+    let iconHelper =  IconHelper()
     
     let notAv = "N/A"
    
@@ -62,7 +63,7 @@ class ForecastViewController: UIViewController {
     func setUpNoError(){
         cityLabel.text = "\((currentWeather?.name)!), \((currentWeather?.sys.country)!)"
         weatherDescriptionLabel.text = "\((currentWeather?.weather[0].weatherDescription)!)"
-        //WeatherDescriptionImageView
+        weatherDecriptionImageView.image = UIImage(named: iconHelper.iconHelper(weatherDescription: (currentWeather?.weather[0].main)!))
         currentTemp.text = String((currentWeather?.main.temp)!) + "°"
         maxTemp.text = "\((currentWeather?.main.tempMax)!)°"
         minTemp.text = "\((currentWeather?.main.tempMin)!)°"
