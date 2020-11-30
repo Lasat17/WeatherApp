@@ -24,8 +24,7 @@ struct ListFindCity: Codable {
     let dt: Int
     let wind: WindFindCity
     let sys: SysFindCity
-    let rain: RainFindCity?
-    let snow: JSONNull?
+    let rain, snow: RainFindCity? 
     let clouds: CloudsFindCity
     let weather: [WeatherFindCity]
 }
