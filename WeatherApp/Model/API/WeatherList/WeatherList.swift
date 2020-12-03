@@ -11,7 +11,7 @@ import Foundation
 // MARK: - WeatherList
 struct WeatherList: Codable {
     let cnt: Int
-    let list: [ListWeatherList]
+    var list: [ListWeatherList]
 }
 
 // MARK: - List

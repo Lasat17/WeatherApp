@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class WeatherCardViewController: UITableViewController {
     
@@ -16,15 +17,28 @@ class WeatherCardViewController: UITableViewController {
     var weatherList : WeatherList? = nil
     let iconHelper = IconHelper()
     let mock = ["2615876","2616015","524901"]
+    
+    private var weatherAppDataModelManager: WeatherAppDataModelManager!
+    private var cities: [NSManagedObject]?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        weatherAppDataModelManager = WeatherAppDataModelManager()
+        cities = weatherAppDataModelManager.getAllForecasts()
+        if (cities != nil && cities!.count > 0){
+            getWeatherData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getWeatherData()
+        
         // Do any additional setup after loading the view.
     }
     
     @IBAction func reloadData(_ sender: Any) {
-        getWeatherData()
+        if (cities != nil && cities!.count > 0){
+            getWeatherData()
+        }
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -53,7 +67,7 @@ class WeatherCardViewController: UITableViewController {
     }
     
     func getWeatherData() {
-        let urlstring = api.weatherListUrl(id: self.mock)
+        let urlstring = api.weatherListUrl(id: cities!)
         print(urlstring)
         if let url = URL(string: urlstring){
             var request = URLRequest(url: url)
@@ -82,7 +96,6 @@ class WeatherCardViewController: UITableViewController {
                     print("hello")
                 } else {
                     self.showError(description: "Something went wrong. Try again.")
-                    
                     if let response1 = response as? HTTPURLResponse{
                         print("\(response1.statusCode)")
                         
@@ -119,5 +132,18 @@ class WeatherCardViewController: UITableViewController {
                 
             }
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if self.weatherList != nil {
+                self.weatherList?.list.remove(at: indexPath.item)
+            }
+            self.weatherAppDataModelManager.deleteWeatherData(city: (self.cities?[indexPath.item])!)
+            self.cities?.remove(at: indexPath.item)
+            //self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.tableView.reloadData()
+        }
+        
     }
 }

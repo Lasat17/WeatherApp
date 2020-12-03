@@ -20,11 +20,15 @@ class AddCityViewController : UIViewController{
     
     //database kode
     private var weatherAppDataModelManager: WeatherAppDataModelManager!
-    private var forecasts: [NSManagedObject]?
+    //private var forecasts: [NSManagedObject]?
     
     
     @IBOutlet weak var ActivityIndicator: UIActivityIndicatorView!
    
+    override func viewWillAppear(_ animated: Bool) {
+        weatherAppDataModelManager = WeatherAppDataModelManager()
+        //forecasts = weatherAppDataModelManager.getAllForecasts()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.TableView.isHidden = true
@@ -32,8 +36,7 @@ class AddCityViewController : UIViewController{
         self.TableView.delegate = self
         
         self.ActivityIndicator.isHidden = true
-        weatherAppDataModelManager = WeatherAppDataModelManager()
-        forecasts = weatherAppDataModelManager.getAllForecasts()
+        
     }
     
     @IBOutlet weak var SearchCityText: UITextField!
@@ -136,12 +139,14 @@ extension AddCityViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         self.TableView.deselectRow(at: indexPath, animated: true)
-        print("1")
+        if !weatherAppDataModelManager.getCityID(cityID: "\((findCity?.list[indexPath.item].id)!)") {
+            //let forecast = (self.weatherAppDataModelManager?.addCity(cityID: "\((findCity?.list[indexPath.item].id)!)", cityName: findCity?.list[indexPath.item].name, country: findCity?.list[indexPath.item].sys.country))!
+       
+            (self.weatherAppDataModelManager?.addCity(cityID: "\((findCity?.list[indexPath.item].id)!)", cityName: findCity?.list[indexPath.item].name, country: findCity?.list[indexPath.item].sys.country))!
+            
+             //self.forecasts!.append(forecast)
+        }
         
-       let forecast = (self.weatherAppDataModelManager?.addCity(cityID: "\((findCity?.list[indexPath.item].id)!)", cityName: findCity?.list[indexPath.item].name, country: findCity?.list[indexPath.item].sys.country))!
-        print("2")
-        self.forecasts!.append(forecast)
-        print("3")
         self.navigationController?.popToRootViewController(animated: true)
    
         

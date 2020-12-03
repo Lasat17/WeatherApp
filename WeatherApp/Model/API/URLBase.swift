@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct URLBase {
     
@@ -26,13 +27,13 @@ struct URLBase {
         return "\(base_url)\(url_forcast)\(units_url)&id=\(city)\(url_Key)"
     }
     
-    func weatherListUrl(id cities: [String]) -> String{
+    func weatherListUrl(id cities: [NSManagedObject]) -> String{
         var idlist = ""
         for (index, cityId) in cities.enumerated() {
             if index < cities.count-1 {
-                idlist += "\(cityId),"
+                idlist += "\((cityId.value(forKey: "cityID"))!),"
             } else {
-                idlist += "\(cityId)"
+                idlist += "\((cityId.value(forKey: "cityID"))!)"
             }
             
         }

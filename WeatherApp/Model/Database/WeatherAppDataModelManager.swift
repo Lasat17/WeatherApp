@@ -11,8 +11,8 @@ import UIKit
 import CoreData
 
 class WeatherAppDataModelManager {
-        var appDelegate: AppDelegate
-      var context: NSManagedObjectContext
+    let appDelegate: AppDelegate
+    let context: NSManagedObjectContext
 
       init() {
           appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -20,52 +20,71 @@ class WeatherAppDataModelManager {
           
       }
     
-    func addCity(cityID: String?, cityName: String?, country: String?) -> NSManagedObject{
+        var commitPredicate: NSPredicate?
+    
+    func getCityID(cityID: String) -> Bool{
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WeatherData")
+        
+        request.predicate = NSPredicate(format: "cityID == %@", cityID)
+        
+        do{
+            let ids = try context.fetch(request)
+            
+            if(ids.count > 0 && ids.count <= 10){
+                return true
+            }
+            
+            return false
+            
+        } catch let error as NSError{
+            print("this bull doesn't work \(error)")
+        }
+        
+        return false
+    }
+     
+    /*
+    func getCityID() -> [NSManagedObject]? {
+      
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WeatherData")
+            let predicate = NSPredicate(format: "cityID")
+        request.predicate = predicate
+        
+            do {
+                let results = try managedObjectContext.
+                return results as? [NSManagedObject]
+                
+            } catch let error as NSError {
+                print("failed: \(error)")
+            }
+            return nil
+        }
+ */
+    func addCity(cityID: String?, cityName: String?, country: String?){
         let et = WeatherData(context: context)
         et.cityID = cityID
         et.cityName = cityName
         et.country = country
         appDelegate.saveContext()
-        return et
     }
     
-    func addWeather(temp: String?, tempMin: String?, tempMax: String?, tempFeelsLike: String?, weatherDescription:  String?, mainWeather: String?) -> NSManagedObject {
+    func updateWeather(weather : ListWeatherList) {
         let et = WeatherData(context: context)
-        et.temp = temp
-        et.tempMin = tempMin
-        et.tempMax = tempMax
-        et.tempFeelsLike = tempFeelsLike
-        et.weatherDescription = weatherDescription;
-        et.mainWeather = mainWeather
+        et.temp = "\(weather.main.temp)"
+        et.tempMin = "\(weather.main.tempMin)"
+        et.tempMax = "\(weather.main.tempMax)"
+        et.tempFeelsLike = "\(weather.main.feelsLike)"
+        et.weatherDescription = weather.weather[0].weatherDescription
+        et.mainWeather = weather.weather[0].main
+        et.humidity = "\(weather.main.humidity)"
+        et.windSpeed = "\(weather.wind.speed)"
+        et.cloudiness = "\(weather.clouds)"
+        et.pressure = "\(weather.main.pressure)"
         appDelegate.saveContext()
-        return et
     }
-    
-    func addWeatherInfo(humidity: String?, windSpeed: String?, cloudiness: String?, pressure: String?) -> NSManagedObject {
-        let et = WeatherData(context: context)
-        et.humidity = humidity
-        et.windSpeed = windSpeed
-        et.cloudiness = cloudiness
-        et.pressure = pressure
-        appDelegate.saveContext()
-        return et
-    }
-    func deleteWeatherData(
-        cityID: NSManagedObject, cityName: NSManagedObject, country: NSManagedObject, temp: NSManagedObject, tempMin: NSManagedObject, tempMax: NSManagedObject, tempFeelsLike: NSManagedObject, weatherDescription: NSManagedObject, mainWeather: NSManagedObject, humidity: NSManagedObject, windSpeed: NSManagedObject, cloudiness: NSManagedObject,pressure: NSManagedObject) {
-        
-        context.delete(cityID)
-        context.delete(cityName)
-        context.delete(country)
-        context.delete(temp)
-        context.delete(tempMin)
-        context.delete(tempMax)
-        context.delete(tempFeelsLike)
-        context.delete(weatherDescription)
-        context.delete(mainWeather)
-        context.delete(humidity)
-        context.delete(windSpeed)
-        context.delete(cloudiness)
-        context.delete(pressure)
+    func deleteWeatherData(city: NSManagedObject) {
+        context.delete(city)
         appDelegate.saveContext()
         
     }
@@ -80,13 +99,5 @@ class WeatherAppDataModelManager {
             }
             return nil
         }
-/*
-      func deleteForecast(temp: NSManagedObject, tempMax: NSManagedObject, tempMin: NSManagedObject, weatherDescription: NSManagedObject){
-          context.delete(temp)
-          context.delete(tempMax)
-          context.delete(tempMin)
-          context.delete(weatherDescription)
-          appDelegate.saveContext()
-      }
- */
+
 }
