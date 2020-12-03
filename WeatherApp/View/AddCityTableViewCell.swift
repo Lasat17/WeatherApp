@@ -12,4 +12,5 @@ class AddCityTableViewCell: UITableViewCell {
 
     @IBOutlet weak var AddCItyNameUILabel: UILabel!
     
+    
 }

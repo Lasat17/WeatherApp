@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class AddCityViewController : UIViewController{
     
@@ -17,13 +18,22 @@ class AddCityViewController : UIViewController{
     
     var findCity : FindCity? = nil
     
-    @IBOutlet weak var ActivityIndicator: UIActivityIndicatorView!
+    //database kode
+    private var weatherAppDataModelManager: WeatherAppDataModelManager!
+    private var forecasts: [NSManagedObject]?
     
+    
+    @IBOutlet weak var ActivityIndicator: UIActivityIndicatorView!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         self.TableView.isHidden = true
         self.TableView.dataSource = self
+        self.TableView.delegate = self
+        
         self.ActivityIndicator.isHidden = true
+        weatherAppDataModelManager = WeatherAppDataModelManager()
+        forecasts = weatherAppDataModelManager.getAllForecasts()
     }
     
     @IBOutlet weak var SearchCityText: UITextField!
@@ -34,7 +44,12 @@ class AddCityViewController : UIViewController{
         getCityData()
     }
     
-    
+/*
+    override func viewWillAppear(_ animated: Bool) {
+        weatherAppDataModelManager = WeatherAppDataModelManager()
+        forecasts = weatherAppDataModelManager.getAllForecasts()
+    }
+    */
     @IBOutlet weak var TableView: UITableView!
     
     //func getCityData(for city: String)
@@ -97,7 +112,7 @@ class AddCityViewController : UIViewController{
 }
 
 
-extension AddCityViewController : UITableViewDataSource {
+extension AddCityViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.findCity != nil {
@@ -114,10 +129,22 @@ extension AddCityViewController : UITableViewDataSource {
             let cityCountry = resultCities.list[indexPath.item].sys.country
             cell.AddCItyNameUILabel.text = "\(cityName), \(cityCountry)"
         }
+        
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        self.TableView.deselectRow(at: indexPath, animated: true)
+        print("1")
+        
+       let forecast = (self.weatherAppDataModelManager?.addCity(cityID: "\((findCity?.list[indexPath.item].id)!)", cityName: findCity?.list[indexPath.item].name, country: findCity?.list[indexPath.item].sys.country))!
+        print("2")
+        self.forecasts!.append(forecast)
+        print("3")
+        self.navigationController?.popToRootViewController(animated: true)
+   
+        
         
     }
     

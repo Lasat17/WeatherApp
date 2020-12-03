@@ -65,7 +65,7 @@ class ForecastViewController: UIViewController {
         weatherDescriptionLabel.text = "\((currentWeather?.weather[0].weatherDescription)!)"
         weatherDecriptionImageView.image = UIImage(named: iconHelper.iconHelper(weatherDescription: (currentWeather?.weather[0].main)!))
         currentTemp.text = String((currentWeather?.main.temp)!) + "°"
-        maxTemp.text = "\((currentWeather?.main.tempMax)!)°"
+        maxTemp.text = "\(Int((currentWeather?.main.tempMax)!))°"
         minTemp.text = "\((currentWeather?.main.tempMin)!)°"
         HumidityLvlLabel.text = "\((currentWeather?.main.humidity)!)%"
         windLvlLabel.text = "\((currentWeather?.wind.speed)!) m/s"
