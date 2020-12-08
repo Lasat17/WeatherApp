@@ -25,12 +25,11 @@ class WeatherAppDataModelManager {
     func getCityID(cityID: String) -> Bool{
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WeatherData")
-        
         request.predicate = NSPredicate(format: "cityID == %@", cityID)
         
         do{
             let ids = try context.fetch(request)
-            
+
             if(ids.count > 0 && ids.count <= 10){
                 return true
             }
@@ -43,24 +42,7 @@ class WeatherAppDataModelManager {
         
         return false
     }
-     
-    /*
-    func getCityID() -> [NSManagedObject]? {
-      
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WeatherData")
-            let predicate = NSPredicate(format: "cityID")
-        request.predicate = predicate
-        
-            do {
-                let results = try managedObjectContext.
-                return results as? [NSManagedObject]
-                
-            } catch let error as NSError {
-                print("failed: \(error)")
-            }
-            return nil
-        }
- */
+
     func addCity(cityID: String?, cityName: String?, country: String?){
         let et = WeatherData(context: context)
         et.cityID = cityID
@@ -69,25 +51,29 @@ class WeatherAppDataModelManager {
         appDelegate.saveContext()
     }
     
-    func updateWeather(weather : ListWeatherList) {
-        let et = WeatherData(context: context)
-        et.temp = "\(weather.main.temp)"
-        et.tempMin = "\(weather.main.tempMin)"
-        et.tempMax = "\(weather.main.tempMax)"
-        et.tempFeelsLike = "\(weather.main.feelsLike)"
-        et.weatherDescription = weather.weather[0].weatherDescription
-        et.mainWeather = weather.weather[0].main
-        et.humidity = "\(weather.main.humidity)"
-        et.windSpeed = "\(weather.wind.speed)"
-        et.cloudiness = "\(weather.clouds)"
-        et.pressure = "\(weather.main.pressure)"
+    func updateWeather(weather : [ListWeatherList], cityList: [NSManagedObject]) -> [NSManagedObject]?{
+        for (index, city) in cityList.enumerated() {
+            city.setValue("\(Int(weather[index].main.temp))°", forKey: "temp")
+            city.setValue("\(Int(weather[index].main.tempMax))°", forKey: "tempMax")
+            city.setValue("\(Int(weather[index].main.tempMin))°", forKey: "tempMin")
+            city.setValue("\(Int(weather[index].main.feelsLike))°", forKey: "tempFeelsLike")
+            city.setValue("\(weather[index].weather[0].weatherDescription)", forKey: "weatherDescription")
+            city.setValue("\(weather[index].weather[0].main)", forKey: "mainWeather")
+            city.setValue("\(weather[index].main.humidity)%", forKey: "humidity")
+            city.setValue("\(weather[index].wind.speed) m/s", forKey: "windSpeed")
+            city.setValue("\(weather[index].clouds.all)%", forKey: "cloudiness")
+            city.setValue("\(weather[index].main.pressure)°", forKey: "pressure")
+            
+        }
         appDelegate.saveContext()
+        return getAllForecasts()
     }
+    
     func deleteWeatherData(city: NSManagedObject) {
         context.delete(city)
         appDelegate.saveContext()
-        
     }
+    
     func getAllForecasts() -> [NSManagedObject]? {
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WeatherData")
 
@@ -99,5 +85,4 @@ class WeatherAppDataModelManager {
             }
             return nil
         }
-
 }

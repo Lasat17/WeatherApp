@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class ForecastViewController: UIViewController {
     var currentWeather : ListWeatherList?
     let iconHelper =  IconHelper()
-    
-    let notAv = "N/A"
+    var city : NSManagedObject?
    
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var weatherDescriptionLabel: UILabel!
@@ -57,6 +57,8 @@ class ForecastViewController: UIViewController {
         
         if (currentWeather != nil){
             setUpNoError()
+        } else if (city != nil){
+            setUpWithError()
         }
     }
 
@@ -74,7 +76,20 @@ class ForecastViewController: UIViewController {
     }
     
     func setUpWithError(){
-        
+        let cityName = city!.value(forKey: "cityName")//result.list[indexPath.item].name
+        let cityCountry = city!.value(forKey: "country")
+        cityLabel.text = "\((cityName)!), \((cityCountry)!) (Old Data)"
+        if (city!.value(forKey: "weatherDescription")) != nil{
+            weatherDescriptionLabel.text = "\((city!.value(forKey: "weatherDescription"))!)"
+            weatherDecriptionImageView.image = UIImage(named: iconHelper.iconHelper(weatherDescription: "\((city!.value(forKey: "mainWeather")!))"))
+            currentTemp.text = "\((city!.value(forKey: "temp")!))"
+            maxTemp.text = "\((city!.value(forKey: "tempMax")!))"
+            minTemp.text =  "\((city!.value(forKey: "tempMin")!))"
+            HumidityLvlLabel.text = "\((city!.value(forKey: "humidity"))!)"
+            windLvlLabel.text = "\((city!.value(forKey: "windSpeed"))!)"
+            cloudinessLvlLabel.text = "\((city!.value(forKey: "cloudiness"))!)"
+            pressureLvlLabel.text = "\((city!.value(forKey: "pressure"))!)"
+        }
     }
 
 }
