@@ -62,7 +62,7 @@ class WeatherAppDataModelManager {
             city.setValue("\(weather[index].main.humidity)%", forKey: "humidity")
             city.setValue("\(weather[index].wind.speed) m/s", forKey: "windSpeed")
             city.setValue("\(weather[index].clouds.all)%", forKey: "cloudiness")
-            city.setValue("\(weather[index].main.pressure)°", forKey: "pressure")
+            city.setValue("\(weather[index].main.pressure)  hPa", forKey: "pressure")
             
         }
         appDelegate.saveContext()
