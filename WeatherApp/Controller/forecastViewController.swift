@@ -9,11 +9,13 @@
 import UIKit
 import CoreData
 
-class ForecastViewController: UIViewController {
+class ForecastViewController: UIViewController, UIScrollViewDelegate {
     var currentWeather : ListWeatherList?
     let iconHelper =  IconHelper()
     var city : NSManagedObject?
    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var weatherDescriptionLabel: UILabel!
     @IBOutlet weak var weatherDecriptionImageView: UIImageView!
@@ -54,6 +56,7 @@ class ForecastViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.scrollView.delegate = self
         
         if (currentWeather != nil){
             setUpNoError()
