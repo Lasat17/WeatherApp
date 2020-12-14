@@ -33,19 +33,23 @@ struct Coord: Codable {
 // MARK: - List
 struct List: Codable {
     let dt: Int
-    let main: MainClass
-    let weather: [Weather]
-    let clouds: Clouds
-    let wind: Wind
-    let visibility: Int
-    let pop: Double
-    let sys: Sys
-    let dtTxt: String
+        let main: MainClass
+        let weather: [Weather]
+        let clouds: Clouds
+        let wind: Wind
+        let visibility: Int
+        let pop: Double
+        let sys: Sys
+        let dtTxt: String
+        let snow: Snow?
+    let rain: Rain?
 
-    enum CodingKeys: String, CodingKey {
-        case dt, main, weather, clouds, wind, visibility, pop, sys
-        case dtTxt = "dt_txt"
-    }
+        enum CodingKeys: String, CodingKey {
+            case dt, main, weather, clouds, wind, visibility, pop, sys
+            case dtTxt = "dt_txt"
+            case snow
+            case rain
+        }
 }
 
 // MARK: - Clouds
@@ -72,6 +76,22 @@ struct MainClass: Codable {
     }
 }
 
+struct Rain: Codable {
+    let the3H: Double
+
+    enum CodingKeys: String, CodingKey {
+        case the3H = "3h"
+    }
+}
+
+struct Snow: Codable {
+    let the3H: Double
+
+    enum CodingKeys: String, CodingKey {
+        case the3H = "3h"
+    }
+}
+
 // MARK: - Sys
 struct Sys: Codable {
     let pod: Pod
@@ -87,7 +107,7 @@ struct Weather: Codable {
     let id: Int
     let main: MainEnum
     let weatherDescription: Description
-    let icon: Icon
+    let icon: String
 
     enum CodingKeys: String, CodingKey {
         case id, main
@@ -96,29 +116,25 @@ struct Weather: Codable {
     }
 }
 
-enum Icon: String, Codable {
-    case the01D = "01d"
-    case the01N = "01n"
-    case the03D = "03d"
-    case the03N = "03n"
-    case the04D = "04d"
-    case the04N = "04n"
-}
-
 enum MainEnum: String, Codable {
     case clear = "Clear"
     case clouds = "Clouds"
+    case snow = "Snow"
+    case rain = "Rain"
 }
 
 enum Description: String, Codable {
     case brokenClouds = "broken clouds"
     case clearSky = "clear sky"
+    case fewClouds = "few clouds"
+    case lightSnow = "light snow"
     case overcastClouds = "overcast clouds"
     case scatteredClouds = "scattered clouds"
+    case lightRain = "light rain"
 }
 
 // MARK: - Wind
 struct Wind: Codable {
     let speed: Double
     let deg: Int
-} 
+}

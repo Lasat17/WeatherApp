@@ -23,7 +23,7 @@ struct URLBase {
         return "\(base_url)\(url_find)\(units_url)&q=\(city)\(url_Key)"
     }
     
-    func forcastUrl(id city: String) -> String{
+    func forcastUrl(id city: Int) -> String{
         return "\(base_url)\(url_forcast)\(units_url)&id=\(city)\(url_Key)"
     }
     

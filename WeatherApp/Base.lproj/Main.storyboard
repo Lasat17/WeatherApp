@@ -489,6 +489,7 @@
                         <outlet property="DayLabel3" destination="wlw-zv-nbF" id="Ltk-6l-UTk"/>
                         <outlet property="DayLabel4" destination="aXL-c7-U8p" id="m1f-7f-0dd"/>
                         <outlet property="DayLabel5" destination="tbO-sI-CD6" id="lRr-aq-Lgp"/>
+                        <outlet property="FeelsLikeUILabel" destination="uyo-QI-JQ4" id="3kX-kU-Hqo"/>
                         <outlet property="HumidityLvlLabel" destination="Kxt-OB-2zc" id="Nhf-fq-3D0"/>
                         <outlet property="cityLabel" destination="Jtk-iW-hHK" id="l5r-Jp-SBV"/>
                         <outlet property="cloudinessLvlLabel" destination="1b8-zS-toy" id="Qy9-74-MJR"/>

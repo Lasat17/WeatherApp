@@ -56,7 +56,7 @@ class WeatherAppDataModelManager {
             city.setValue("\(Int(weather[index].main.temp))°", forKey: "temp")
             city.setValue("\(Int(weather[index].main.tempMax))°", forKey: "tempMax")
             city.setValue("\(Int(weather[index].main.tempMin))°", forKey: "tempMin")
-            city.setValue("\(Int(weather[index].main.feelsLike))°", forKey: "tempFeelsLike")
+            city.setValue("Feels like:      \(Int(weather[index].main.feelsLike))°", forKey: "tempFeelsLike")
             city.setValue("\(weather[index].weather[0].weatherDescription)", forKey: "weatherDescription")
             city.setValue("\(weather[index].weather[0].main)", forKey: "mainWeather")
             city.setValue("\(weather[index].main.humidity)%", forKey: "humidity")
