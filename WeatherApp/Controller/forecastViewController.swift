@@ -88,7 +88,7 @@ class ForecastViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func setUpWithError(){
-        let cityName = city!.value(forKey: "cityName")//result.list[indexPath.item].name
+        let cityName = city!.value(forKey: "cityName")
         let cityCountry = city!.value(forKey: "country")
         cityLabel.text = "\((cityName)!), \((cityCountry)!) (Old Data)"
         if (city!.value(forKey: "weatherDescription")) != nil{
@@ -180,13 +180,11 @@ class ForecastViewController: UIViewController, UIScrollViewDelegate {
         minTempLabel4.text = "\(Int(weatherForecast[3].minTemp))°"
         minTempLabel5.text = "\(Int(weatherForecast[4].minTemp))°"
         
-        
         weatherDescriptionImageView1.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[0].getMainMain()))
         weatherDescriptionImageView2.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[1].getMainMain()))
         weatherDescriptionImageView3.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[2].getMainMain()))
         weatherDescriptionImageView4.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[3].getMainMain()))
         weatherDescriptionImageView5.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[4].getMainMain()))
-        
     }
 
 }

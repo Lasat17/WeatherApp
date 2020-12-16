@@ -60,7 +60,7 @@ class WeatherCardViewController: UITableViewController {
             cell.MaxTempUILabel.text = "\(Int(result.list[indexPath.item].main.tempMax))°"
             cell.MinTempUILabel.text = "\(Int(result.list[indexPath.item].main.tempMin))°"
         } else if error, cities != nil, !cities!.isEmpty {
-            let cityName = cities![indexPath.item].value(forKey: "cityName")//result.list[indexPath.item].name
+            let cityName = cities![indexPath.item].value(forKey: "cityName")
             let cityCountry = cities![indexPath.item].value(forKey: "country")
             cell.CityUILabel.text = "\((cityName)!), \((cityCountry)!) (Old Data)"
             if (cities![indexPath.item].value(forKey: "weatherDescription")) != nil{
@@ -151,7 +151,6 @@ class WeatherCardViewController: UITableViewController {
             self.weatherAppDataModelManager.deleteWeatherData(city: (self.cities?[indexPath.item])!)
             self.cities?.remove(at: indexPath.item)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            //self.tableView.reloadData()
         }
         
     }

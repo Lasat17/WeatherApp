@@ -44,7 +44,6 @@ class AddCityViewController : UIViewController{
 
     @IBOutlet weak var TableView: UITableView!
     
-    //func getCityData(for city: String)
     func getCityData() {
         let city = (SearchCityText.text?.lowercased())!
         if let url = URL(string: api.findCityUrl(for: city)){
