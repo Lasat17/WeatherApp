@@ -59,16 +59,17 @@ class ForecastViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var minTempLabel5: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
-        
             super.viewDidLoad()
             self.scrollView.delegate = self
-            
-            if (currentWeather != nil){
-                setUpNoError()
-                getForcastData()
-            } else if (city != nil){
-                setUpWithError()
-            }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if (currentWeather != nil){
+            setUpNoError()
+            getForcastData()
+        } else if (city != nil){
+            setUpWithError()
+        }
     }
 
     func setUpNoError(){
@@ -177,6 +178,13 @@ class ForecastViewController: UIViewController, UIScrollViewDelegate {
         minTempLabel3.text = "\(Int(weatherForecast[2].minTemp))°"
         minTempLabel4.text = "\(Int(weatherForecast[3].minTemp))°"
         minTempLabel5.text = "\(Int(weatherForecast[4].minTemp))°"
+        
+        
+        weatherDescriptionImageView1.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[0].getMainMain()))
+        weatherDescriptionImageView2.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[1].getMainMain()))
+        weatherDescriptionImageView3.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[2].getMainMain()))
+        weatherDescriptionImageView4.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[3].getMainMain()))
+        weatherDescriptionImageView5.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[4].getMainMain()))
         
     }
 

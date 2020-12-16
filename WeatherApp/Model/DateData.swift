@@ -38,4 +38,17 @@ class DateData {
         }
         
     }
+    
+    func getMainMain() -> String {
+        var main = ""
+        var appear = 0
+        
+        for (weather, weatherCount) in mainWeather {
+            if weatherCount > appear {
+                main = weather
+                appear = weatherCount
+            }
+        }
+        return main
+    }
 }

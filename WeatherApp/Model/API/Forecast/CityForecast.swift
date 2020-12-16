@@ -42,7 +42,7 @@ struct List: Codable {
         let sys: Sys
         let dtTxt: String
         let snow: Snow?
-    let rain: Rain?
+        let rain: Rain?
 
         enum CodingKeys: String, CodingKey {
             case dt, main, weather, clouds, wind, visibility, pop, sys
