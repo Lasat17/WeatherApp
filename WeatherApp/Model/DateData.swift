@@ -49,6 +49,10 @@ class DateData {
                 appear = weatherCount
             }
         }
+        
+        if appear == 1 {
+            main = Array(mainWeather)[4].key //at 12:00
+        }
         return main
     }
 }

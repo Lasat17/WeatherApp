@@ -59,16 +59,17 @@ class ForecastViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var minTempLabel5: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
-            super.viewDidLoad()
-            self.scrollView.delegate = self
-    }
+        super.viewDidLoad()
+        self.scrollView.delegate = self
+        if (currentWeather != nil){
+            setUpNoError()
+        } else if (city != nil){
+            setUpWithError()
+        }    }
     
     override func viewDidAppear(_ animated: Bool) {
         if (currentWeather != nil){
-            setUpNoError()
             getForcastData()
-        } else if (city != nil){
-            setUpWithError()
         }
     }
 
@@ -118,7 +119,7 @@ class ForecastViewController: UIViewController, UIScrollViewDelegate {
                 
                 if let response1 = response as? HTTPURLResponse{
                     if response1.statusCode == 400 {
-                        self.showError(description: "Could not get the weather data")
+                        self.showError(description: "Could not get the forecast data")
                         return
                     }
                 }
@@ -147,9 +148,9 @@ class ForecastViewController: UIViewController, UIScrollViewDelegate {
         for weather in forecast!.list {
             let date = Date(timeIntervalSince1970: TimeInterval(weather.dt)).dayOfTheWeek()
             if (weatherForecast.count != 0 && weatherForecast[ArrayIndex].day == date) {
-                weatherForecast[ArrayIndex].updateData(minTemp: weather.main.tempMin, maxTemp: weather.main.tempMax, main: weather.weather[0].main.rawValue)
+                weatherForecast[ArrayIndex].updateData(minTemp: weather.main.tempMin, maxTemp: weather.main.tempMax, main: weather.weather[0].main)
             } else {
-                weatherForecast.append(DateData.init(day: Date(timeIntervalSince1970: TimeInterval(weather.dt)).dayOfTheWeek(), minTemp: weather.main.tempMin, maxTemp: weather.main.tempMax, main: weather.weather[0].main.rawValue))
+                weatherForecast.append(DateData.init(day: Date(timeIntervalSince1970: TimeInterval(weather.dt)).dayOfTheWeek(), minTemp: weather.main.tempMin, maxTemp: weather.main.tempMax, main: weather.weather[0].main))
                 if weatherForecast.count == 1{
                 } else {
                     ArrayIndex += 1
