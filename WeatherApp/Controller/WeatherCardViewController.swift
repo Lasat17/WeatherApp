@@ -45,7 +45,7 @@ class WeatherCardViewController: UITableViewController {
         } else if error, self.cities != nil{
             return (cities?.count)!
         }
-        return 1
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
