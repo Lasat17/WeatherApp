@@ -12,9 +12,9 @@ class DateData {
 
 
     let day : String
-    var maxTemp : Double
-    var minTemp : Double
-    var mainWeather : [String : Int] = [:]
+    private (set) var maxTemp : Double
+    private (set) var minTemp : Double
+    private (set) var mainWeather : [String : Int] = [:]
     
     init(day: String, minTemp: Double, maxTemp: Double, main: String){
         self.day = day

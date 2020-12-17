@@ -12,11 +12,11 @@ import CoreData
 
 class AddCityViewController : UIViewController{
     
-    let session = URLSession(configuration: .default)
-    let jsonDecoder = JSONDecoder()
-    let api = URLBase()
+    private let session = URLSession(configuration: .default)
+    private let jsonDecoder = JSONDecoder()
+    private let api = URLBase()
     
-    var findCity : FindCity? = nil
+    private var findCity : FindCity? = nil
 
     private var weatherAppDataModelManager: WeatherAppDataModelManager!
 
@@ -108,9 +108,10 @@ extension AddCityViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         self.TableView.deselectRow(at: indexPath, animated: true)
-        if !weatherAppDataModelManager.getCityID(cityID: "\((findCity?.list[indexPath.item].id)!)") {
-            (self.weatherAppDataModelManager?.addCity(cityID: "\((findCity?.list[indexPath.item].id)!)", cityName: findCity?.list[indexPath.item].name, country: findCity?.list[indexPath.item].sys.country))!
+        if let city = findCity?.list[indexPath.item], !weatherAppDataModelManager.getCityID(cityID: "\(city.id)") {
+            (self.weatherAppDataModelManager?.addCity(cityID: "\(city.id)", cityName: city.name, country: city.sys.country))!
         }
+        
         self.navigationController?.popToRootViewController(animated: true)
     }
 }

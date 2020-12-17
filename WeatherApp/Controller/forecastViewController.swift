@@ -11,12 +11,12 @@ import CoreData
 
 class ForecastViewController: UIViewController, UIScrollViewDelegate {
     var currentWeather : ListWeatherList?
-    let iconHelper =  IconHelper()
+    private let iconHelper =  IconHelper()
     var city : NSManagedObject?
-    let session = URLSession(configuration: .default)
-    let jsonDecoder = JSONDecoder()
-    let api = URLBase()
-    var forecast : CityForecast?
+    private let session = URLSession(configuration: .default)
+    private let jsonDecoder = JSONDecoder()
+    private let api = URLBase()
+    private var forecast : CityForecast?
    
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -65,7 +65,8 @@ class ForecastViewController: UIViewController, UIScrollViewDelegate {
             setUpNoError()
         } else if (city != nil){
             setUpWithError()
-        }    }
+        }
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         if (currentWeather != nil){
@@ -74,34 +75,39 @@ class ForecastViewController: UIViewController, UIScrollViewDelegate {
     }
 
     func setUpNoError(){
-        cityLabel.text = "\(currentWeather!.name), \(currentWeather!.sys.country)"
-        weatherDescriptionLabel.text = "\(currentWeather!.weather[0].weatherDescription)"
-        weatherDecriptionImageView.image = UIImage(named: iconHelper.iconHelper(weatherDescription: currentWeather!.weather[0].main))
-        currentTemp.text = "\(Int(currentWeather!.main.temp))°"
-        maxTemp.text = "\(Int(currentWeather!.main.tempMax))°"
-        minTemp.text = "\(Int(currentWeather!.main.tempMin))°"
-        HumidityLvlLabel.text = "\(currentWeather!.main.humidity)%"
-        windLvlLabel.text = "\(currentWeather!.wind.speed) m/s"
-        cloudinessLvlLabel.text = "\(currentWeather!.clouds.all)%"
-        pressureLvlLabel.text = "\(currentWeather!.main.pressure) hPa"
-        FeelsLikeUILabel.text = "Feels like:      \(Int(currentWeather!.main.feelsLike))°"
+        if let currentWeather = self.currentWeather{
+            cityLabel.text = "\(currentWeather.name), \(currentWeather.sys.country)"
+            weatherDescriptionLabel.text = "\(currentWeather.weather[0].weatherDescription)"
+            weatherDecriptionImageView.image = UIImage(named: iconHelper.iconHelper(weatherDescription: currentWeather.weather[0].main))
+            currentTemp.text = "\(Int(currentWeather.main.temp))°"
+            maxTemp.text = "\(Int(currentWeather.main.tempMax))°"
+            minTemp.text = "\(Int(currentWeather.main.tempMin))°"
+            HumidityLvlLabel.text = "\(currentWeather.main.humidity)%"
+            windLvlLabel.text = "\(currentWeather.wind.speed) m/s"
+            cloudinessLvlLabel.text = "\(currentWeather.clouds.all)%"
+            pressureLvlLabel.text = "\(currentWeather.main.pressure) hPa"
+            FeelsLikeUILabel.text = "Feels like:      \(Int(currentWeather.main.feelsLike))°"
+            getForcastData()
+        }
     }
     
     func setUpWithError(){
-        let cityName = city!.value(forKey: "cityName")
-        let cityCountry = city!.value(forKey: "country")
-        cityLabel.text = "\((cityName)!), \((cityCountry)!) (Old Data)"
-        if (city!.value(forKey: "weatherDescription")) != nil{
-            weatherDescriptionLabel.text = "\((city!.value(forKey: "weatherDescription"))!)"
-            weatherDecriptionImageView.image = UIImage(named: iconHelper.iconHelper(weatherDescription: "\((city!.value(forKey: "mainWeather")!))"))
-            currentTemp.text = "\((city!.value(forKey: "temp")!))"
-            maxTemp.text = "\((city!.value(forKey: "tempMax")!))"
-            minTemp.text =  "\((city!.value(forKey: "tempMin")!))"
-            HumidityLvlLabel.text = "\((city!.value(forKey: "humidity"))!)"
-            windLvlLabel.text = "\((city!.value(forKey: "windSpeed"))!)"
-            cloudinessLvlLabel.text = "\((city!.value(forKey: "cloudiness"))!)"
-            pressureLvlLabel.text = "\((city!.value(forKey: "pressure"))!)"
-            FeelsLikeUILabel.text = "\((city!.value(forKey: "pressure"))!)"
+        if let city = self.city {
+            let cityName = city.value(forKey: "cityName")
+            let cityCountry = city.value(forKey: "country")
+            cityLabel.text = "\((cityName)!), \((cityCountry)!) (Old Data)"
+            if (city.value(forKey: "weatherDescription")) != nil{
+                weatherDescriptionLabel.text = "\((city.value(forKey: "weatherDescription"))!)"
+                weatherDecriptionImageView.image = UIImage(named: iconHelper.iconHelper(weatherDescription: "\((city.value(forKey: "mainWeather")!))"))
+                currentTemp.text = "\((city.value(forKey: "temp")!))"
+                maxTemp.text = "\((city.value(forKey: "tempMax")!))"
+                minTemp.text =  "\((city.value(forKey: "tempMin")!))"
+                HumidityLvlLabel.text = "\((city.value(forKey: "humidity"))!)"
+                windLvlLabel.text = "\((city.value(forKey: "windSpeed"))!)"
+                cloudinessLvlLabel.text = "\((city.value(forKey: "cloudiness"))!)"
+                pressureLvlLabel.text = "\((city.value(forKey: "pressure"))!)"
+                FeelsLikeUILabel.text = "\((city.value(forKey: "tempFeelsLike"))!)"
+            }
         }
     }
     
