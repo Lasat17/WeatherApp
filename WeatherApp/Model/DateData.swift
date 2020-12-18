@@ -8,13 +8,14 @@
 
 import Foundation
 
-class DateData {
+struct DateData {
 
 
     let day : String
     private (set) var maxTemp : Double
     private (set) var minTemp : Double
     private (set) var mainWeather : [String : Int] = [:]
+    private var main = ""
     
     init(day: String, minTemp: Double, maxTemp: Double, main: String){
         self.day = day
@@ -23,7 +24,7 @@ class DateData {
         mainWeather[main] = 1
     }
     
-    func updateData(minTemp: Double, maxTemp: Double, main: String){
+    mutating func updateData(minTemp: Double, maxTemp: Double, main: String){
         if self.minTemp > minTemp{
             self.minTemp = minTemp
         }

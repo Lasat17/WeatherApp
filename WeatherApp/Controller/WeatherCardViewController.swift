@@ -40,10 +40,10 @@ class WeatherCardViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.weatherList != nil {
-            return (weatherList?.list.count)!
-        } else if error, self.cities != nil{
-            return (cities?.count)!
+        if let weatherList = self.weatherList?.list {
+            return weatherList.count
+        } else if error, let cities = self.cities{
+            return cities.count
         }
         return 0
     }
@@ -75,44 +75,46 @@ class WeatherCardViewController: UITableViewController {
     }
     
     func getWeatherData() {
-        let urlstring = api.weatherListUrl(id: cities!)
-        print(urlstring)
-        if let url = URL(string: urlstring){
-            var request = URLRequest(url: url)
-            request.httpMethod = "GET"
-            
-            let task = session.dataTask(with: request, completionHandler: {(data, response, error) in DispatchQueue.main.async {
+        if let cities = cities{
+            let urlstring = api.weatherListUrl(id: cities)
+            print(urlstring)
+            if let url = URL(string: urlstring){
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET"
                 
-                if error != nil{
-                    self.showError(description: "Something went wrong. Try again.")
-                    self.error = true
-                    return
-                }
-                
-                if let response1 = response as? HTTPURLResponse{
-                    if response1.statusCode == 400 {
+                let task = session.dataTask(with: request, completionHandler: {(data, response, error) in DispatchQueue.main.async {
+                    
+                    if error != nil{
+                        self.showError(description: "Something went wrong. Try again.")
                         self.error = true
-                        self.showError(description: "Invalid currency. Try another.")
                         return
                     }
-                }
-                
-              
-                if let weatherData = data, let weatherList1 = try? self.jsonDecoder.decode(WeatherList.self, from: weatherData){
-                    self.weatherList = weatherList1
-                    self.tableView.reloadData()
-                    self.cities = self.weatherAppDataModelManager.updateWeather(weather: self.weatherList!.list, cityList: self.cities!)
-                } else {
-                    self.showError(description: "Something went wrong. Try again.")
-                    self.error = true
+                    
                     if let response1 = response as? HTTPURLResponse{
-                        print("\(response1.statusCode)")
-                        
+                        if response1.statusCode == 400 {
+                            self.error = true
+                            self.showError(description: "Invalid currency. Try another.")
+                            return
+                        }
                     }
-                }
+                    
+                    
+                    if let weatherData = data, let weatherList1 = try? self.jsonDecoder.decode(WeatherList.self, from: weatherData){
+                        self.weatherList = weatherList1
+                        self.tableView.reloadData()
+                        self.cities = self.weatherAppDataModelManager.updateWeather(weather: self.weatherList!.list, cityList: self.cities!)
+                    } else {
+                        self.showError(description: "Something went wrong. Try again.")
+                        self.error = true
+                        if let response1 = response as? HTTPURLResponse{
+                            print("\(response1.statusCode)")
+                            
+                        }
+                    }
                 }})
-            
-            task.resume()
+                
+                task.resume()
+            }
         }
         
     }
@@ -129,7 +131,7 @@ class WeatherCardViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "weatherSeg"){
             if let destination = segue.destination as? ForecastViewController {

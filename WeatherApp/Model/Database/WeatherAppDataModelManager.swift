@@ -13,14 +13,13 @@ import CoreData
 class WeatherAppDataModelManager {
     let appDelegate: AppDelegate
     let context: NSManagedObjectContext
-
-      init() {
-          appDelegate = UIApplication.shared.delegate as! AppDelegate
-          context = appDelegate.persistentContainer.viewContext
-          
-      }
     
-        var commitPredicate: NSPredicate?
+    init() {
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
+        context = appDelegate.persistentContainer.viewContext
+    }
+    
+    var commitPredicate: NSPredicate?
     
     func getCityID(cityID: String) -> Bool{
         
@@ -29,7 +28,7 @@ class WeatherAppDataModelManager {
         
         do{
             let ids = try context.fetch(request)
-
+            
             if(ids.count > 0 && ids.count <= 10){
                 return true
             }
@@ -42,7 +41,7 @@ class WeatherAppDataModelManager {
         
         return false
     }
-
+    
     func addCity(cityID: String?, cityName: String?, country: String?){
         let et = WeatherData(context: context)
         et.cityID = cityID
@@ -75,14 +74,14 @@ class WeatherAppDataModelManager {
     }
     
     func getAllForecasts() -> [NSManagedObject]? {
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WeatherData")
-
-            do {
-                let results = try context.fetch(request)
-                return results as? [NSManagedObject]
-            } catch {
-                print("failed: \(error)")
-            }
-            return nil
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WeatherData")
+        
+        do {
+            let results = try context.fetch(request)
+            return results as? [NSManagedObject]
+        } catch {
+            print("failed: \(error)")
         }
+        return nil
+    }
 }

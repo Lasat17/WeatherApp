@@ -90,8 +90,8 @@ class AddCityViewController : UIViewController{
 extension AddCityViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.findCity != nil {
-            return (findCity?.list.count)!
+        if let numOfCities = findCity?.list{
+            return numOfCities.count
         }
         return 0
     }

@@ -17,7 +17,7 @@ class ForecastViewController: UIViewController, UIScrollViewDelegate {
     private let jsonDecoder = JSONDecoder()
     private let api = URLBase()
     private var forecast : CityForecast?
-   
+    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var cityLabel: UILabel!
@@ -73,7 +73,7 @@ class ForecastViewController: UIViewController, UIScrollViewDelegate {
             getForcastData()
         }
     }
-
+    
     func setUpNoError(){
         if let currentWeather = self.currentWeather{
             cityLabel.text = "\(currentWeather.name), \(currentWeather.sys.country)"
@@ -136,7 +136,7 @@ class ForecastViewController: UIViewController, UIScrollViewDelegate {
                 } else {
                     self.showError(description: "Something went wrong")
                 }
-                }})
+            }})
             task.resume()
         }
     }
@@ -151,48 +151,51 @@ class ForecastViewController: UIViewController, UIScrollViewDelegate {
         var weatherForecast : [DateData] = []
         var ArrayIndex = 0
         
-        for weather in forecast!.list {
-            let date = Date(timeIntervalSince1970: TimeInterval(weather.dt)).dayOfTheWeek()
-            if (weatherForecast.count != 0 && weatherForecast[ArrayIndex].day == date) {
-                weatherForecast[ArrayIndex].updateData(minTemp: weather.main.tempMin, maxTemp: weather.main.tempMax, main: weather.weather[0].main)
-            } else {
-                weatherForecast.append(DateData.init(day: Date(timeIntervalSince1970: TimeInterval(weather.dt)).dayOfTheWeek(), minTemp: weather.main.tempMin, maxTemp: weather.main.tempMax, main: weather.weather[0].main))
-                if weatherForecast.count == 1{
+        if let forecast = forecast?.list {
+            
+            for weather in forecast {
+                let date = Date(timeIntervalSince1970: TimeInterval(weather.dt)).dayOfTheWeek()
+                if (weatherForecast.count != 0 && weatherForecast[ArrayIndex].day == date) {
+                    weatherForecast[ArrayIndex].updateData(minTemp: weather.main.tempMin, maxTemp: weather.main.tempMax, main: weather.weather[0].main)
                 } else {
-                    ArrayIndex += 1
+                    weatherForecast.append(DateData.init(day: Date(timeIntervalSince1970: TimeInterval(weather.dt)).dayOfTheWeek(), minTemp: weather.main.tempMin, maxTemp: weather.main.tempMax, main: weather.weather[0].main))
+                    if weatherForecast.count == 1{
+                    } else {
+                        ArrayIndex += 1
+                    }
                 }
             }
+            
+            if weatherForecast[0].day.hasPrefix(Date().dayOfTheWeek()){
+                weatherForecast.remove(at: 0)
+            }
+            
+            DayLabel1.text = weatherForecast[0].day
+            DayLabel2.text = weatherForecast[1].day
+            DayLabel3.text = weatherForecast[2].day
+            DayLabel4.text = weatherForecast[3].day
+            DayLabel5.text = weatherForecast[4].day
+            
+            maxTempLabel1.text = "\(Int(weatherForecast[0].maxTemp))°"
+            maxTempLabel2.text = "\(Int(weatherForecast[1].maxTemp))°"
+            maxTempLabel3.text = "\(Int(weatherForecast[2].maxTemp))°"
+            maxTempLabel4.text = "\(Int(weatherForecast[3].maxTemp))°"
+            maxTempLabel5.text = "\(Int(weatherForecast[4].maxTemp))°"
+            
+            minTempLabel1.text = "\(Int(weatherForecast[0].minTemp))°"
+            minTempLabel2.text = "\(Int(weatherForecast[1].minTemp))°"
+            minTempLabel3.text = "\(Int(weatherForecast[2].minTemp))°"
+            minTempLabel4.text = "\(Int(weatherForecast[3].minTemp))°"
+            minTempLabel5.text = "\(Int(weatherForecast[4].minTemp))°"
+            
+            weatherDescriptionImageView1.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[0].getMainMain()))
+            weatherDescriptionImageView2.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[1].getMainMain()))
+            weatherDescriptionImageView3.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[2].getMainMain()))
+            weatherDescriptionImageView4.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[3].getMainMain()))
+            weatherDescriptionImageView5.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[4].getMainMain()))
         }
-        
-        if weatherForecast[0].day.hasPrefix(Date().dayOfTheWeek()){
-            weatherForecast.remove(at: 0)
-        }
-        
-        DayLabel1.text = weatherForecast[0].day
-        DayLabel2.text = weatherForecast[1].day
-        DayLabel3.text = weatherForecast[2].day
-        DayLabel4.text = weatherForecast[3].day
-        DayLabel5.text = weatherForecast[4].day
-        
-        maxTempLabel1.text = "\(Int(weatherForecast[0].maxTemp))°"
-        maxTempLabel2.text = "\(Int(weatherForecast[1].maxTemp))°"
-        maxTempLabel3.text = "\(Int(weatherForecast[2].maxTemp))°"
-        maxTempLabel4.text = "\(Int(weatherForecast[3].maxTemp))°"
-        maxTempLabel5.text = "\(Int(weatherForecast[4].maxTemp))°"
-        
-        minTempLabel1.text = "\(Int(weatherForecast[0].minTemp))°"
-        minTempLabel2.text = "\(Int(weatherForecast[1].minTemp))°"
-        minTempLabel3.text = "\(Int(weatherForecast[2].minTemp))°"
-        minTempLabel4.text = "\(Int(weatherForecast[3].minTemp))°"
-        minTempLabel5.text = "\(Int(weatherForecast[4].minTemp))°"
-        
-        weatherDescriptionImageView1.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[0].getMainMain()))
-        weatherDescriptionImageView2.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[1].getMainMain()))
-        weatherDescriptionImageView3.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[2].getMainMain()))
-        weatherDescriptionImageView4.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[3].getMainMain()))
-        weatherDescriptionImageView5.image = UIImage(named: iconHelper.iconHelper(weatherDescription: weatherForecast[4].getMainMain()))
     }
-
+    
 }
 
 extension Date {
